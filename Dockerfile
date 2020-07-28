@@ -1,6 +1,6 @@
 ARG ELASTICSEARCH_VERSION
-ARG JIEBAPLUGIN_VERSION
 FROM elasticsearch:${ELASTICSEARCH_VERSION}
+ARG JIEBAPLUGIN_VERSION
 RUN bin/elasticsearch-plugin install analysis-smartcn
 RUN mkdir -p /usr/share/elasticsearch/plugins/jieba && \
     cd /usr/share/elasticsearch/plugins/jieba && \
