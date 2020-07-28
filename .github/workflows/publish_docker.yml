@@ -14,10 +14,11 @@ jobs:
     - name: Publish to Registry
       uses: elgohr/Publish-Docker-Github-Action@master
       env:
-        ELASTICSEARCH_VERSION: 7.6.2
+        ELASTICSEARCH_VERSION: 7.8.1
+        JIEBAPLUGIN_VERSION: 7.8.1
       with:
         name: ${{ secrets.DOCKERHUB_IMAGENAME }}
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
         cache: ${{ github.event_name != 'schedule' }}
-        buildargs: ELASTICSEARCH_VERSION
+        buildargs: ELASTICSEARCH_VERSION,JIEBAPLUGIN_VERSION
